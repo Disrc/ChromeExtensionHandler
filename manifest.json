@@ -1,0 +1,31 @@
+{
+    "name": "Template Addon",
+    "description": "Template Addon",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["storage", "tabs", "declarativeNetRequest"],
+    "options_page": "html/options.html",
+    "action": {
+        "default_popup": "html/menu.html",
+        "default_icon": {}
+    },
+    "content_scripts": [{
+        "matches": [
+            "https://*.example.com/*",
+            "https://*.example.net/*",
+            "https://*.example.org/*"
+        ],
+        "js": ["scripts/cache-handler.js"]
+    }, {
+        "matches": [
+            "https://*.example.com/*",
+            "https://*.example.net/*",
+            "https://*.example.org/*"
+        ],
+        "js": ["scripts/template.js"]
+    }],
+    "icons": {}
+}
